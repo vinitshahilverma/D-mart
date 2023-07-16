@@ -19,9 +19,9 @@ public interface StoreService {
 
 	public Store getStoreById(Long id) throws StoreException;
 
-	public List<Product> getAllproductsByStoreId(Long sId) throws StoreException;
+	public List<Product> getAllproductsByStoreId(Long sId) throws StoreException,ProductException;
 
-	public List<Store> getAllStoresByProductId(Long pId) throws StoreException;
+	public List<Store> getAllStoresByProductId(Long pId) throws StoreException,ProductException;
 
 	public String addProductToStore(Long sid,Long pId) throws StoreException, ProductException;
 	

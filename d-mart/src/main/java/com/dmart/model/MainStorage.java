@@ -24,6 +24,6 @@ public class MainStorage {
 	private Integer id;
 	
 	@ElementCollection
-	private HashMap<Product,Integer> productQuantity = new HashMap<>();
+	private HashMap<Product,Long> productQuantity = new HashMap<>();
 
 }

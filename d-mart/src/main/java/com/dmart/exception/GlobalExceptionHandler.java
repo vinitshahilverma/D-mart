@@ -13,6 +13,45 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 	
+	@ExceptionHandler(StoreException.class)
+    public ResponseEntity<MyErrorDetails> StoreExceptionHandler(StoreException ee,WebRequest req){
+    	
+    	MyErrorDetails err = new MyErrorDetails();
+    	
+    	  err.setTimeStamp(LocalDateTime.now());
+    	  err.setDetails(req.getDescription(false));
+    	  err.setMessage(ee.getMessage());
+    	  
+    	  return new ResponseEntity<MyErrorDetails>(err,HttpStatus.BAD_REQUEST);
+    	
+    }
+	
+	@ExceptionHandler(ProductException.class)
+    public ResponseEntity<MyErrorDetails> productExceptionHandler(ProductException ee,WebRequest req){
+    	
+    	MyErrorDetails err = new MyErrorDetails();
+    	
+    	  err.setTimeStamp(LocalDateTime.now());
+    	  err.setDetails(req.getDescription(false));
+    	  err.setMessage(ee.getMessage());
+    	  
+    	  return new ResponseEntity<MyErrorDetails>(err,HttpStatus.BAD_REQUEST);
+    	
+    }
+	
+	@ExceptionHandler(CategoryException.class)
+    public ResponseEntity<MyErrorDetails> categoryExceptionHandler(CategoryException ee,WebRequest req){
+    	
+    	MyErrorDetails err = new MyErrorDetails();
+    	
+    	  err.setTimeStamp(LocalDateTime.now());
+    	  err.setDetails(req.getDescription(false));
+    	  err.setMessage(ee.getMessage());
+    	  
+    	  return new ResponseEntity<MyErrorDetails>(err,HttpStatus.BAD_REQUEST);
+    	
+    }
+	
 	@ExceptionHandler(Exception.class)
     public ResponseEntity<MyErrorDetails> exceptionHandler(Exception ee,WebRequest req){
     	
