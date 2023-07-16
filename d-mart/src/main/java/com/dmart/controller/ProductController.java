@@ -25,6 +25,8 @@ public class ProductController {
 	@Autowired
 	private productService pService;
 	
+	//API to add Product
+	
 	@PostMapping("/addProduct")
 	public ResponseEntity<Product> addProductHandler(@RequestBody Product product) throws ProductException{
 		
@@ -32,6 +34,8 @@ public class ProductController {
 		
 		return new ResponseEntity<Product>(newProduct,HttpStatus.CREATED);
 	}
+	
+	//API to update product Details
 	
 	@PutMapping("/updateProduct")
 	public ResponseEntity<Product> updateProductHandler(@RequestBody Product product) throws ProductException{
@@ -41,6 +45,8 @@ public class ProductController {
 		return new ResponseEntity<Product>(newProduct,HttpStatus.ACCEPTED);
 	}
 	
+	//API to delete product with their respective Id
+	
 	@DeleteMapping("/deleteProduct/{id}")
 	public ResponseEntity<Product> deleteProductHandler(@PathVariable Long id) throws ProductException{
 		
@@ -49,6 +55,7 @@ public class ProductController {
 		return new ResponseEntity<Product>(newProduct,HttpStatus.OK);
 	}
 	
+	//API to get product details from their respective Id
 	
 	@GetMapping("/getProductById/{id}")
 	public ResponseEntity<Product> getProductByIdHandler(@PathVariable Long id) throws ProductException{
@@ -58,6 +65,7 @@ public class ProductController {
 		return new ResponseEntity<Product>(newProduct,HttpStatus.OK);
 	}
 	
+	//API to get All the product details available
 	
 	@GetMapping("/getAllProducts")
 	public ResponseEntity<List<Product>> getAllProductHandler() throws ProductException{

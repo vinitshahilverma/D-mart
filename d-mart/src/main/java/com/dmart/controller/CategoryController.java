@@ -26,6 +26,8 @@ public class CategoryController {
 	@Autowired
 	private CategoryService cService;
 	
+	//API to add product Category
+	
 	@PostMapping("/addCategory")
 	public ResponseEntity<Category> addCategoryHandler(@RequestBody Category category) throws CategoryException{
 		
@@ -34,6 +36,8 @@ public class CategoryController {
 		return new ResponseEntity<Category>(newCategory,HttpStatus.CREATED);
 		
 	}
+	
+	//API to update product Category
 	
 	@PutMapping("/updateCategory")
 	public ResponseEntity<Category> updateCategoryHandler(@RequestBody Category category) throws CategoryException{
@@ -44,6 +48,8 @@ public class CategoryController {
 		
 	}
 	
+	//API to delete product Category
+	
 	@DeleteMapping("/deleteCategory/{id}")
 	public ResponseEntity<Category> deleteCategoryHandler(@PathVariable Long id) throws CategoryException{
 		
@@ -53,6 +59,8 @@ public class CategoryController {
 		
 	}
 	
+	//API to get product Category details by their respective id
+	
 	@GetMapping("/getCategoryById/{id}")
 	public ResponseEntity<Category> getCategoryByIdHandler(@PathVariable Long id) throws CategoryException{
 		
@@ -61,6 +69,8 @@ public class CategoryController {
 		return new ResponseEntity<Category>(newCategory,HttpStatus.OK);
 		
 	}
+	
+	//API to view all the Product Categories Available
 	
 	@GetMapping("/getAllCategory")
 	public ResponseEntity<List<Category>> getAllCategoryHandler() throws CategoryException{

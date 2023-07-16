@@ -28,6 +28,8 @@ public class StoreController {
 	@Autowired
 	private StoreService sService;
 	
+	//API to add Store
+	
 	@PostMapping("/addStore")
 	public ResponseEntity<Store> addStoreHandler(@RequestBody Store store) throws StoreException{
 		
@@ -36,6 +38,7 @@ public class StoreController {
 		return new ResponseEntity<Store>(newStore,HttpStatus.CREATED);
 	}
 	
+	//API to update Store details
 	
 	@PutMapping("/updateStore")
 	public ResponseEntity<Store> updateStoreHandler(@RequestBody Store store) throws StoreException{
@@ -45,6 +48,7 @@ public class StoreController {
 		return new ResponseEntity<Store>(newStore,HttpStatus.ACCEPTED);
 	}
 	
+	//API to delete Store with their respective id 
 	
 	@DeleteMapping("/deleteStore/{id}")
 	public ResponseEntity<Store> deleteStoreHandler(@PathVariable Long id) throws StoreException{
@@ -54,6 +58,7 @@ public class StoreController {
 		return new ResponseEntity<Store>(newStore,HttpStatus.OK);
 	}
 	
+	//API to get Store details with their respective id
 	
 	@GetMapping("/getStoreById/{id}")
 	public ResponseEntity<Store> getStoreByIdHandler(@PathVariable Long id) throws StoreException{
@@ -63,6 +68,7 @@ public class StoreController {
 		return new ResponseEntity<Store>(newStore,HttpStatus.OK);
 	}
 	
+	//API to get details of the all available Stores
 	
 	@GetMapping("/getAllStores")
 	public ResponseEntity<List<Store>> getAllStoresHandler() throws StoreException{
@@ -72,6 +78,8 @@ public class StoreController {
 		return new ResponseEntity<List<Store>>(newStore,HttpStatus.OK);
 	}
 	
+	//API to get all product details available at a particular Store
+	
 	@GetMapping("/getAllProductsByStoreId/{id}")
 	public ResponseEntity<List<Product>> getAllProductsByStoreIdHandler(@PathVariable Long id) throws StoreException, ProductException{
 		
@@ -79,6 +87,8 @@ public class StoreController {
 		
 		return new ResponseEntity<List<Product>>(productList,HttpStatus.OK);
 	}
+	
+	//API to get All Store Details contains a particular product
 	
 	@GetMapping("/getAllStoresByProductId/{id}")
 	public ResponseEntity<List<Store>> getAllStoresByProductIdHandler(@PathVariable Long id) throws StoreException, ProductException{
@@ -88,6 +98,7 @@ public class StoreController {
 		return new ResponseEntity<List<Store>>(productList,HttpStatus.OK);
 	}
 	
+	//API to add product to particular store
 	
 	@PostMapping("/addProductToStore/{sId}/{pId}")
 	public ResponseEntity<String> addProductToStoreHandler(@PathVariable Long sId,@PathVariable Long pId) throws StoreException, ProductException{
@@ -97,6 +108,8 @@ public class StoreController {
 		return new ResponseEntity<String>(result,HttpStatus.OK);
 	}
 	
+	//API to delete product from a particular store
+	
 	@PostMapping("/deleteProductFromStore/{sId}/{pId}")
 	public ResponseEntity<String> addProductToFromHandler(@PathVariable Long sId,@PathVariable Long pId) throws StoreException, ProductException{
 		
@@ -105,6 +118,8 @@ public class StoreController {
 		return new ResponseEntity<String>(result,HttpStatus.OK);
 	}
 	
+	//API to increase product quantity to a particular Store
+	
 	@PostMapping("/increaseProductToStore/{sId}/{pId}")
 	public ResponseEntity<String> increaseProductToStoreHandler(@PathVariable Long sId,@PathVariable Long pId,@RequestParam Long quantity) throws StoreException, ProductException{
 		
@@ -112,6 +127,8 @@ public class StoreController {
 		
 		return new ResponseEntity<String>(result,HttpStatus.OK);
 	}
+	
+	//API to decrease product quantity to a particular Store
 	
 	@PostMapping("/decreaseProductToStore/{sId}/{pId}")
 	public ResponseEntity<String> decreaseProductToStoreHandler(@PathVariable Long sId,@PathVariable Long pId,@RequestParam Long quantity) throws StoreException, ProductException{

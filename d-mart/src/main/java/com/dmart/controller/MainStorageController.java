@@ -23,6 +23,8 @@ public class MainStorageController {
 	@Autowired
 	private MainStorageService mService;
 	
+	//API to add Main Storage
+	
 	@PostMapping("/addMainStorage")
 	public ResponseEntity<String> addMainStorageHandler(@RequestBody MainStorage mStorage){
 		
@@ -31,6 +33,8 @@ public class MainStorageController {
 		return new ResponseEntity<String>(result,HttpStatus.CREATED);
 		
 	}
+	
+	//API to delete Main Storage
 	
 	@DeleteMapping("/deleteMainStorage")
 	public ResponseEntity<String> deleteMainStorageHandler(){
@@ -41,6 +45,8 @@ public class MainStorageController {
 		
 	}
 	
+	//API to add Products to Main Storage
+	
 	@PutMapping("/addProductToMainStorage/{id}")
 	public ResponseEntity<String> addProdcutToMainStorageHandler(@PathVariable Long id) throws ProductException{
 		
@@ -49,6 +55,8 @@ public class MainStorageController {
 		return new ResponseEntity<String>(result,HttpStatus.OK);
 		
 	}
+	
+	//API to delete Products from Main Storage through their respected product Id;
 	
 	@PutMapping("/deleteProductToMainStorage/{id}")
 	public ResponseEntity<String> deleteProdcutToMainStorageHandler(@PathVariable Long id) throws ProductException{
@@ -59,6 +67,7 @@ public class MainStorageController {
 		
 	}
 	
+	//API to increase available Product Quantity in the Main Storage
 	
 	@PutMapping("/increaseQuantityToMainStorage/{pId}")
 	public ResponseEntity<String> increaseQuantityToMainStorageHandler(@PathVariable Long pId,@RequestParam Long quantity) throws ProductException{
@@ -69,6 +78,7 @@ public class MainStorageController {
 		
 	}
 	
+	//API to decrease available Product Quantity from Main Storage
 	
 	@PutMapping("/decreaseQuantityToMainStorage/{pId}")
 	public ResponseEntity<String> decreaseQuantityToMainStorageHandler(@PathVariable Long pId,@RequestParam Long quantity) throws ProductException{
